@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import Loading from "components/Loading";
-import { AuthService } from "mybase";
-// import "components/CSS/reset.css";
-// import "components/CSS/style_Loading.css";
-// import "components/CSS/style_AuthForm.css";
-// import "components/CSS/style_Main.css";
-// import "components/CSS/style_Profile.css";
+import { auth } from "fBase";
 
 function App() {
   const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(AuthService.currentUser);
+  const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser);
   const [userObj, setUserObj] = useState(null);
 
   useEffect(() => {
-    AuthService.onAuthStateChanged((User) => {
+    auth.onAuthStateChanged((User) => {
       if (User) {
         setUserObj({
           displayName: User.displayName,

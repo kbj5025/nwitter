@@ -1,4 +1,4 @@
-import { AuthService, firebaseInstance } from "mybase";
+import { AuthService, firebaseInstance } from "fBase";
 import React, { useState } from "react";
 
 const AuthWithSocial = () => {
